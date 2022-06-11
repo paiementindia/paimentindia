@@ -85,7 +85,9 @@ input{
 @media screen and (max-width: 800px){
    .section-h{
        flex-wrap: wrap;
+       height: 100%;
    }
+    
    .formulaire{
     width: 400px;
     justify-content: center;
