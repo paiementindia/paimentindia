@@ -55,7 +55,6 @@ button:hover{
 
 /*formulaire de paiement*/
 #form{
-    
     display: none;
 }
 .formulaire{
@@ -81,4 +80,20 @@ form{
 input{
     width: 90%;
     padding: 8px;
+}
+
+@media screen and (max-width: 800px){
+   .section-h{
+       flex-wrap: wrap;
+   }
+   .formulaire{
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 2px 10px 2px;
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
 }
